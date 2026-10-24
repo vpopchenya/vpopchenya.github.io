@@ -1,6 +1,9 @@
 (function () {
   "use strict";
 
+  // Tell the CSS that this script is running, so it can switch off the reveal safety net.
+  document.documentElement.classList.add("reveal-ready");
+
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // Background drifts slower than the page while scrolling.

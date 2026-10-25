@@ -39,7 +39,7 @@
 </script>
 </head>
 <body>
-<a class="skip" href="#top">Skip to content</a>
+<a data-testid="skip-link" class="skip" href="#top">Skip to content</a>
 
 <div class="bg" aria-hidden="true">
   <!-- window of a business card site -->
@@ -88,46 +88,46 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
 
 <div class="wrap">
   <header class="top">
-    <a class="mark" href="./" aria-label="Vadim Popchenya, home"><svg class="logo" viewBox="0 0 64 64" width="48" height="48" aria-hidden="true"><rect width="64" height="64" rx="18" fill="#ffd23f"/><path d="M11 26 L21 45 L31 19" fill="none" stroke="#14103a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M41 47 V19 H47 A8.5 8.5 0 0 1 47 36 H41" fill="none" stroke="#14103a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    <nav class="lang" aria-label="Site language">
-      <a href="../" hreflang="ru" lang="ru">RU</a>
-      <a href="./" hreflang="en" lang="en" aria-current="page">EN</a>
+    <a data-testid="logo" class="mark" href="./" aria-label="Vadim Popchenya, home"><svg class="logo" viewBox="0 0 64 64" width="48" height="48" aria-hidden="true"><rect width="64" height="64" rx="18" fill="#ffd23f"/><path d="M11 26 L21 45 L31 19" fill="none" stroke="#14103a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M41 47 V19 H47 A8.5 8.5 0 0 1 47 36 H41" fill="none" stroke="#14103a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <nav data-testid="lang-switch" class="lang" aria-label="Site language">
+      <a data-testid="lang-ru" href="../" hreflang="ru" lang="ru">RU</a>
+      <a data-testid="lang-en" href="./" hreflang="en" lang="en" aria-current="page">EN</a>
     </nav>
   </header>
 
   <main id="top" tabindex="-1">
     <div class="hero">
-      <div class="stamp" aria-hidden="true">
+      <div data-testid="stamp" class="stamp" aria-hidden="true">
         <span class="tick">✓</span>
         <span>tests<br>passed</span>
       </div>
-      <h1 class="intro"><span>I build websites and test them myself</span></h1>
+      <h1 data-testid="hero-title" class="intro"><span>I build websites and test them myself</span></h1>
       <p class="lead intro"><span class="sweep">I'm a test automation engineer: I run automated tests on every site before handing it over, so you don't have to worry about quality.</span></p>
-      <div class="intro"><a class="btn" href="#order">Order a site</a></div>
+      <div class="intro"><a data-testid="hero-order" class="btn" href="#order">Order a site</a></div>
     </div>
 
-    <section class="reveal" aria-labelledby="what">
+    <section data-testid="section-what" class="reveal" aria-labelledby="what">
       <h2 id="what">What I do</h2>
       <div class="panels">
-        <div class="panel tests">
+        <div data-testid="panel-tests" class="panel tests">
           <h3>Automated tests</h3>
           <p><span class="sweep">Python, pytest, Playwright. UI and API tests, with load tests on Locust next.</span></p>
         </div>
-        <div class="panel sites">
+        <div data-testid="panel-sites" class="panel sites">
           <h3>Websites</h3>
           <p><span class="sweep">Landing pages, corporate and multi-page sites: responsive, fast, with a contact form. I host them and connect your domain.</span></p>
         </div>
       </div>
     </section>
 
-    <section class="reveal" aria-labelledby="prices">
+    <section data-testid="section-prices" class="reveal" aria-labelledby="prices">
       <h2 id="prices">Services and prices</h2>
       <!-- PLACEHOLDERS: prices are approximate, replace with your own -->
       <div class="plans">
-        <article class="plan">
+        <article data-testid="plan-landing" class="plan">
           <h3>Landing page</h3>
           <p class="for">One page to sell one service or product.</p>
-          <p class="price"><span class="from">from</span><strong>₽15,000</strong></p>
+          <p data-testid="plan-price" class="price"><span class="from">from</span><strong>₽15,000</strong></p>
           <ul>
             <li>Responsive design for phone and desktop</li>
             <li>Contact form and contact buttons</li>
@@ -135,12 +135,12 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
             <li>Automated testing before handover</li>
             <li>Timeline: from 3 days</li>
           </ul>
-          <a class="btn" href="#order" data-plan="Landing page">Order</a>
+          <a data-testid="plan-order" class="btn" href="#order" data-plan="Landing page">Order</a>
         </article>
-        <article class="plan">
+        <article data-testid="plan-corporate" class="plan">
           <h3>Corporate website</h3>
           <p class="for">A company site: services, about, contacts.</p>
-          <p class="price"><span class="from">from</span><strong>₽40,000</strong></p>
+          <p data-testid="plan-price" class="price"><span class="from">from</span><strong>₽40,000</strong></p>
           <ul>
             <li>Up to 6 pages</li>
             <li>Design that follows your brand</li>
@@ -148,12 +148,12 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
             <li>Automated tests for key pages</li>
             <li>Timeline: from 2 weeks</li>
           </ul>
-          <a class="btn" href="#order" data-plan="Corporate website">Order</a>
+          <a data-testid="plan-order" class="btn" href="#order" data-plan="Corporate website">Order</a>
         </article>
-        <article class="plan">
+        <article data-testid="plan-multipage" class="plan">
           <h3>Multi-page website</h3>
           <p class="for">A catalog, a blog or a large site with many sections.</p>
-          <p class="price"><span class="from">from</span><strong>₽70,000</strong></p>
+          <p data-testid="plan-price" class="price"><span class="from">from</span><strong>₽70,000</strong></p>
           <ul>
             <li>10 pages or more</li>
             <li>One design and reusable page templates</li>
@@ -161,17 +161,17 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
             <li>Automated tests for every page and form</li>
             <li>Timeline: from 4 weeks</li>
           </ul>
-          <a class="btn" href="#order" data-plan="Multi-page website">Order</a>
+          <a data-testid="plan-order" class="btn" href="#order" data-plan="Multi-page website">Order</a>
         </article>
       </div>
       <p class="plans-note">Prices are approximate. I'll give an exact quote after a short chat about your project.</p>
     </section>
 
-    <section class="reveal" aria-labelledby="works">
+    <section data-testid="section-works" class="reveal" aria-labelledby="works">
       <h2 id="works">My sites</h2>
       <!-- PLACEHOLDERS: when a real site exists, replace <div class="card"> with <a class="card" href="site address">, set the type and name, remove "Coming soon" -->
       <div class="cards">
-        <div class="card">
+        <div data-testid="work-card-1" class="card">
           <svg class="preview" viewBox="0 0 120 90" aria-hidden="true">
             <rect x="2" y="2" width="116" height="86" rx="10"/>
             <line x1="2" y1="20" x2="118" y2="20"/>
@@ -185,7 +185,7 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
           <span class="title">Space for my first project</span>
           <span class="soon">Coming soon</span>
         </div>
-        <div class="card">
+        <div data-testid="work-card-2" class="card">
           <svg class="preview" viewBox="0 0 120 90" aria-hidden="true">
             <rect x="2" y="2" width="116" height="86" rx="10"/>
             <line x1="2" y1="20" x2="118" y2="20"/>
@@ -201,16 +201,16 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
       </div>
       <div class="works">
         <p>My work will appear here. Want your site to be among the first? Send a request.</p>
-        <a class="btn" href="#order">Order a site</a>
+        <a data-testid="works-order" class="btn" href="#order">Order a site</a>
       </div>
     </section>
 
-    <section class="reveal" aria-labelledby="order">
+    <section data-testid="section-order" class="reveal" aria-labelledby="order">
       <h2 id="order">Order a site</h2>
       <div class="order">
         <p class="lead-in">Tell me what you need. I'll reply with a quote and a timeline.</p>
         <!-- To make the form work: sign up at web3forms.com and put your key into data-key -->
-        <form id="order-form" novalidate data-endpoint="https://api.web3forms.com/submit" data-key=""
+        <form data-testid="order-form" id="order-form" novalidate data-endpoint="https://api.web3forms.com/submit" data-key=""
               data-subject="Request from vpopchenya.github.io" data-from-name="Business card site"
               data-msg-sending="Sending…"
               data-msg-ok="Thank you, your request was sent. I'll reply soon."
@@ -219,64 +219,64 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
           <div class="form-grid">
             <div class="field">
               <label for="f-name">Name</label>
-              <input id="f-name" name="name" type="text" autocomplete="name" required maxlength="80" placeholder="How should I address you">
+              <input data-testid="form-name" id="f-name" name="name" type="text" autocomplete="name" required maxlength="80" placeholder="How should I address you">
             </div>
             <div class="field">
               <label for="f-contact">How to reach you</label>
-              <input id="f-contact" name="contact" type="text" autocomplete="off" required maxlength="120" placeholder="Telegram or email">
+              <input data-testid="form-contact" id="f-contact" name="contact" type="text" autocomplete="off" required maxlength="120" placeholder="Telegram or email">
             </div>
             <fieldset class="field wide">
               <legend>What you need</legend>
               <div class="chips">
-                <label class="chip"><input type="radio" name="type" value="Landing page" checked><span>Landing page</span></label>
-                <label class="chip"><input type="radio" name="type" value="Corporate website"><span>Corporate website</span></label>
-                <label class="chip"><input type="radio" name="type" value="Multi-page website"><span>Multi-page website</span></label>
-                <label class="chip"><input type="radio" name="type" value="Other" data-other><span>Other</span></label>
-                <label class="chip"><input type="radio" name="type" value="Not sure yet" data-unsure><span>Not sure yet</span></label>
+                <label data-testid="type-landing" class="chip"><input type="radio" name="type" value="Landing page" checked><span>Landing page</span></label>
+                <label data-testid="type-corporate" class="chip"><input type="radio" name="type" value="Corporate website"><span>Corporate website</span></label>
+                <label data-testid="type-multipage" class="chip"><input type="radio" name="type" value="Multi-page website"><span>Multi-page website</span></label>
+                <label data-testid="type-other" class="chip"><input type="radio" name="type" value="Other" data-other><span>Other</span></label>
+                <label data-testid="type-unsure" class="chip"><input type="radio" name="type" value="Not sure yet" data-unsure><span>Not sure yet</span></label>
               </div>
-              <div class="field other" id="other-box" hidden>
+              <div data-testid="form-other-box" class="field other" id="other-box" hidden>
                 <label for="f-other">What exactly do you need</label>
-                <input id="f-other" name="other" type="text" maxlength="120" placeholder="For example, an online store or a portfolio site">
+                <input data-testid="form-other" id="f-other" name="other" type="text" maxlength="120" placeholder="For example, an online store or a portfolio site">
               </div>
-              <p class="chip-hint" id="unsure-hint" hidden>No problem. Describe your project below and I'll suggest an option.</p>
+              <p data-testid="form-unsure-hint" class="chip-hint" id="unsure-hint" hidden>No problem. Describe your project below and I'll suggest an option.</p>
             </fieldset>
             <div class="field wide">
               <label for="f-message">Tell me about your project</label>
-              <textarea id="f-message" name="message" maxlength="2000" placeholder="What you do, what you want on the site, any examples you like"></textarea>
+              <textarea data-testid="form-message" id="f-message" name="message" maxlength="2000" placeholder="What you do, what you want on the site, any examples you like"></textarea>
             </div>
             <div class="hp" aria-hidden="true">
-              <label>Leave this field empty <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"></label>
+              <label>Leave this field empty <input data-testid="form-botcheck" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"></label>
             </div>
             <div class="field wide">
               <label class="consent" for="f-consent">
-                <input id="f-consent" name="consent" type="checkbox" required>
-                <span>I agree to the processing of my personal data as described in the <a href="privacy/">privacy policy</a>.</span>
+                <input data-testid="form-consent" id="f-consent" name="consent" type="checkbox" required>
+                <span>I agree to the processing of my personal data as described in the <a data-testid="form-privacy" href="privacy/">privacy policy</a>.</span>
               </label>
             </div>
             <div class="field wide form-actions">
-              <button class="btn" type="submit">Send request</button>
-              <p class="form-status" role="status" aria-live="polite"></p>
+              <button data-testid="form-submit" class="btn" type="submit">Send request</button>
+              <p data-testid="form-status" class="form-status" role="status" aria-live="polite"></p>
             </div>
           </div>
         </form>
       </div>
     </section>
 
-    <section class="reveal" aria-labelledby="contacts">
+    <section data-testid="section-contacts" class="reveal" aria-labelledby="contacts">
       <h2 id="contacts">Contacts</h2>
       <ul class="contacts">
-        <li><a href="https://github.com/vpopchenya" rel="me noopener"><span>GitHub</span><span class="val">github.com/vpopchenya</span></a></li>
+        <li><a data-testid="contact-github" href="https://github.com/vpopchenya" rel="me noopener"><span>GitHub</span><span class="val">github.com/vpopchenya</span></a></li>
         <!-- PLACEHOLDERS: when real contacts exist, replace <div class="soon-row"> with links like the GitHub one:
              <a href="https://t.me/YOUR_NAME" rel="me noopener">…</a> and <a href="mailto:YOUR@ADDRESS">…</a> -->
-        <li><div class="soon-row"><span>Telegram</span><span class="val">coming soon</span></div></li>
-        <li><div class="soon-row"><span>Email</span><span class="val">coming soon</span></div></li>
+        <li><div data-testid="contact-telegram" class="soon-row"><span>Telegram</span><span class="val">coming soon</span></div></li>
+        <li><div data-testid="contact-email" class="soon-row"><span>Email</span><span class="val">coming soon</span></div></li>
       </ul>
     </section>
   </main>
 
-  <footer>
+  <footer data-testid="footer">
     <span>© 2026 Vadim Popchenya</span>
-    <a href="privacy/">Privacy policy</a>
+    <a data-testid="footer-privacy" href="privacy/">Privacy policy</a>
   </footer>
 </div>
 </body>

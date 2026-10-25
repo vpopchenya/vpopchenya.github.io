@@ -39,7 +39,7 @@
       entries.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0, rootMargin: "0px 0px -12% 0px" }); // works for sections of any height
     items.forEach(function (el) { io.observe(el); });
   } else {
     items.forEach(function (el) { el.classList.add("in"); });
@@ -79,6 +79,17 @@
   function say(kind, text) {
     status.className = "form-status" + (kind ? " " + kind : "");
     status.textContent = text;
+  }
+
+  // No key yet: say so above the fields, so nobody fills in a form that cannot be sent.
+  if (!form.dataset.key) {
+    var note = document.createElement("p");
+    note.className = "form-note";
+    note.dataset.testid = "form-note";
+    note.textContent = form.dataset.msgNokey;
+    form.insertBefore(note, form.firstChild);
+    form.classList.add("no-key");
+    submit.disabled = true;
   }
 
   form.addEventListener("submit", function (e) {

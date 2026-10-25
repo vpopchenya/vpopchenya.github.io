@@ -20,19 +20,19 @@
      впишите настоящий email вместо заглушки, проверьте срок хранения и перечень сервисов. -->
 <div class="wrap">
   <header class="top">
-    <a class="mark" href="../" aria-label="Вадим Попченя, на главную"><svg class="logo" viewBox="0 0 64 64" width="48" height="48" aria-hidden="true"><rect width="64" height="64" rx="18" fill="#ffd23f"/><path d="M11 26 L21 45 L31 19" fill="none" stroke="#14103a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M41 47 V19 H47 A8.5 8.5 0 0 1 47 36 H41" fill="none" stroke="#14103a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    <nav class="lang" aria-label="Язык сайта">
-      <a href="./" hreflang="ru" lang="ru" aria-current="page">RU</a>
-      <a href="../en/privacy/" hreflang="en" lang="en">EN</a>
+    <a data-testid="logo" class="mark" href="../" aria-label="Вадим Попченя, на главную"><svg class="logo" viewBox="0 0 64 64" width="48" height="48" aria-hidden="true"><rect width="64" height="64" rx="18" fill="#ffd23f"/><path d="M11 26 L21 45 L31 19" fill="none" stroke="#14103a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M41 47 V19 H47 A8.5 8.5 0 0 1 47 36 H41" fill="none" stroke="#14103a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <nav data-testid="lang-switch" class="lang" aria-label="Язык сайта">
+      <a data-testid="lang-ru" href="./" hreflang="ru" lang="ru" aria-current="page">RU</a>
+      <a data-testid="lang-en" href="../en/privacy/" hreflang="en" lang="en">EN</a>
     </nav>
   </header>
 
-  <main class="doc">
+  <main data-testid="privacy-page" class="doc">
     <h1>Политика конфиденциальности</h1>
     <p>Дата редакции: 24 октября 2026 года.</p>
 
     <h2>Кто обрабатывает данные</h2>
-    <p>Данные обрабатывает Вадим Попченя (физическое лицо), владелец сайта vpopchenya.github.io. Связаться по вопросам данных можно по адресу <span class="placeholder">email владельца (адрес появится здесь позже)</span>.</p>
+    <p>Данные обрабатывает Вадим Попченя (физическое лицо), владелец сайта vpopchenya.github.io. Связаться по вопросам данных можно по адресу <span data-testid="privacy-email" class="placeholder">email владельца (адрес появится здесь позже)</span>.</p>
 
     <h2>Какие данные и зачем</h2>
     <p>Когда вы отправляете заявку, сайт получает имя, контакт для связи (Telegram или email), выбранный тип сайта и текст сообщения. Эти данные нужны, чтобы ответить на заявку и обсудить заказ. Для других целей я их не использую.</p>
@@ -50,12 +50,12 @@
     <p>Сайт не использует cookie, счётчики и сервисы аналитики.</p>
 
     <h2>Ваши права</h2>
-    <p>Вы можете в любой момент отозвать согласие, узнать, какие ваши данные у меня есть, или попросить их удалить. Для этого напишите на <span class="placeholder">email владельца (адрес появится здесь позже)</span>.</p>
+    <p>Вы можете в любой момент отозвать согласие, узнать, какие ваши данные у меня есть, или попросить их удалить. Для этого напишите на <span data-testid="privacy-email" class="placeholder">email владельца (адрес появится здесь позже)</span>.</p>
 
     <h2>Изменения</h2>
     <p>Если политика изменится, новая версия появится на этой странице с новой датой.</p>
 
-    <p><a href="../">Вернуться на сайт</a></p>
+    <p><a data-testid="back-home" href="../">Вернуться на сайт</a></p>
   </main>
 </div>
 </body>

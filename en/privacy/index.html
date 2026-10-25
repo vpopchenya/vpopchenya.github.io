@@ -20,19 +20,19 @@
      put a real email in place of the placeholder, check the retention period and the list of services. -->
 <div class="wrap">
   <header class="top">
-    <a class="mark" href="../" aria-label="Vadim Popchenya, home"><svg class="logo" viewBox="0 0 64 64" width="48" height="48" aria-hidden="true"><rect width="64" height="64" rx="18" fill="#ffd23f"/><path d="M11 26 L21 45 L31 19" fill="none" stroke="#14103a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M41 47 V19 H47 A8.5 8.5 0 0 1 47 36 H41" fill="none" stroke="#14103a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    <nav class="lang" aria-label="Site language">
-      <a href="../../privacy/" hreflang="ru" lang="ru">RU</a>
-      <a href="./" hreflang="en" lang="en" aria-current="page">EN</a>
+    <a data-testid="logo" class="mark" href="../" aria-label="Vadim Popchenya, home"><svg class="logo" viewBox="0 0 64 64" width="48" height="48" aria-hidden="true"><rect width="64" height="64" rx="18" fill="#ffd23f"/><path d="M11 26 L21 45 L31 19" fill="none" stroke="#14103a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M41 47 V19 H47 A8.5 8.5 0 0 1 47 36 H41" fill="none" stroke="#14103a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <nav data-testid="lang-switch" class="lang" aria-label="Site language">
+      <a data-testid="lang-ru" href="../../privacy/" hreflang="ru" lang="ru">RU</a>
+      <a data-testid="lang-en" href="./" hreflang="en" lang="en" aria-current="page">EN</a>
     </nav>
   </header>
 
-  <main class="doc">
+  <main data-testid="privacy-page" class="doc">
     <h1>Privacy policy</h1>
     <p>Last updated: October 24, 2026.</p>
 
     <h2>Who processes your data</h2>
-    <p>Your data is processed by Vadim Popchenya (an individual), the owner of vpopchenya.github.io. For questions about your data, write to <span class="placeholder">the owner's email (the address will appear here later)</span>.</p>
+    <p>Your data is processed by Vadim Popchenya (an individual), the owner of vpopchenya.github.io. For questions about your data, write to <span data-testid="privacy-email" class="placeholder">the owner's email (the address will appear here later)</span>.</p>
 
     <h2>What data and why</h2>
     <p>When you send a request, the site receives your name, a way to contact you (Telegram or email), the type of site you chose and your message. I need this to reply to your request and discuss the order. I do not use it for anything else.</p>
@@ -50,12 +50,12 @@
     <p>This site does not use cookies, trackers or analytics services.</p>
 
     <h2>Your rights</h2>
-    <p>You can withdraw your consent at any time, ask what data I hold about you, or ask me to delete it. Write to <span class="placeholder">the owner's email (the address will appear here later)</span>.</p>
+    <p>You can withdraw your consent at any time, ask what data I hold about you, or ask me to delete it. Write to <span data-testid="privacy-email" class="placeholder">the owner's email (the address will appear here later)</span>.</p>
 
     <h2>Changes</h2>
     <p>If this policy changes, the new version will appear on this page with a new date.</p>
 
-    <p><a href="../">Back to the site</a></p>
+    <p><a data-testid="back-home" href="../">Back to the site</a></p>
   </main>
 </div>
 </body>

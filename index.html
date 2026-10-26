@@ -6,8 +6,8 @@
 <!-- Security policy: only this site's own files, plus the form service. If you change the inline script below, its hash here must change too. -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-WZRJfWvsnNCPcxzZwvyhovnZGqhZaC+8gPGPRbx6wTk='; style-src 'self'; img-src 'self'; connect-src https://api.web3forms.com; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>Вадим Попченя: сайты-визитки и лендинги с автотестами</title>
-<meta name="description" content="Делаю лендинги, корпоративные и многостраничные сайты и проверяю каждый автотестами до сдачи. Python, pytest, Playwright.">
+<title>Вадим Попченя — разработка сайтов: лендинги и сайты для бизнеса</title>
+<meta name="description" content="Делаю лендинги, корпоративные и многостраничные сайты под ключ: удобные на телефоне, быстрые, с формой заявки. Перед сдачей проверяю каждый сайт.">
 <meta name="author" content="Вадим Попченя">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#0e0a2b">
@@ -17,15 +17,15 @@
 <link rel="alternate" hreflang="x-default" href="https://vpopchenya.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Вадим Попченя">
-<meta property="og:title" content="Вадим Попченя: сайты, которые я сам проверяю автотестами">
-<meta property="og:description" content="Лендинги, корпоративные и многостраничные сайты. Каждый проверяю автотестами до сдачи.">
+<meta property="og:title" content="Вадим Попченя — разработка сайтов">
+<meta property="og:description" content="Лендинги, корпоративные и многостраничные сайты под ключ. Перед сдачей проверяю каждый сайт.">
 <meta property="og:url" content="https://vpopchenya.github.io/">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:image" content="https://vpopchenya.github.io/img/og-ru.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Вадим Попченя: делаю сайты и сам проверяю их автотестами">
+<meta property="og:image:alt" content="Вадим Попченя — разработка сайтов под ключ">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="css/style.css">
@@ -34,7 +34,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":"WebSite","@id":"https://vpopchenya.github.io/#website","url":"https://vpopchenya.github.io/","name":"Вадим Попченя","inLanguage":"ru","publisher":{"@id":"https://vpopchenya.github.io/#person"}},
-{"@type":"Person","@id":"https://vpopchenya.github.io/#person","name":"Вадим Попченя","alternateName":"Vadim Popchenya","url":"https://vpopchenya.github.io/","jobTitle":"Автотестировщик и разработчик сайтов","sameAs":["https://github.com/vpopchenya"],"knowsAbout":["Автоматизированное тестирование","Python","pytest","Playwright","Разработка сайтов"]}
+{"@type":"Person","@id":"https://vpopchenya.github.io/#person","name":"Вадим Попченя","alternateName":"Vadim Popchenya","url":"https://vpopchenya.github.io/","jobTitle":"Разработчик сайтов","sameAs":["https://github.com/vpopchenya"],"knowsAbout":["Разработка сайтов","HTML","CSS","JavaScript","Автоматизированное тестирование","Python"]}
 ]}
 </script>
 </head>
@@ -75,10 +75,10 @@
     <rect x="240" y="200" width="96" height="44" rx="10"/>
   </svg>
   <!-- test code -->
-  <pre class="bg-item bg-code-a" data-speed="0.3"><span class="kw">def</span> test_contact_form(page):
-    page.goto(<span class="ok">"/"</span>)
-    page.get_by_role(<span class="ok">"button"</span>).click()
-    expect(page.locator(<span class="ok">".thanks"</span>)).to_be_visible()</pre>
+  <pre class="bg-item bg-code-a" data-speed="0.3">&lt;<span class="kw">section</span> class=<span class="ok">"hero"</span>&gt;
+  &lt;<span class="kw">h1</span>&gt;Новый сайт&lt;/<span class="kw">h1</span>&gt;
+  &lt;<span class="kw">a</span> class=<span class="ok">"btn"</span> href=<span class="ok">"#order"</span>&gt;Заказать&lt;/<span class="kw">a</span>&gt;
+&lt;/<span class="kw">section</span>&gt;</pre>
   <pre class="bg-item bg-code-b" data-speed="0.16">tests/test_ui.py::test_menu      <span class="ok">PASSED</span>
 tests/test_ui.py::test_form      <span class="ok">PASSED</span>
 tests/test_api.py::test_status   <span class="ok">PASSED</span>
@@ -99,23 +99,23 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
     <div class="hero">
       <div data-testid="stamp" class="stamp" aria-hidden="true">
         <span class="tick">✓</span>
-        <span>тесты<br>пройдены</span>
+        <span>проверено</span>
       </div>
       <h1 data-testid="hero-title" class="intro"><span>Делаю сайты и сам проверяю их</span></h1>
-      <p class="lead intro"><span class="sweep">Я автотестировщик: каждый сайт проверяю автотестами до сдачи, так что за качество можно не волноваться.</span></p>
+      <p class="lead intro"><span class="sweep">Лендинги, корпоративные и многостраничные сайты под ключ: дизайн, вёрстка, форма заявки, размещение и домен. Перед сдачей проверяю каждую страницу на телефоне и компьютере.</span></p>
       <div class="intro"><a data-testid="hero-order" class="btn" href="#order">Заказать сайт</a></div>
     </div>
 
     <section data-testid="section-what" class="reveal" aria-labelledby="what">
       <h2 id="what">Чем занимаюсь</h2>
       <div class="panels">
-        <div data-testid="panel-tests" class="panel tests">
-          <h3>Автотесты</h3>
-          <p><span class="sweep">Python, pytest, Playwright. Тесты интерфейса и API, дальше нагрузочные тесты на Locust.</span></p>
-        </div>
         <div data-testid="panel-sites" class="panel sites">
           <h3>Сайты</h3>
           <p><span class="sweep">Лендинги, корпоративные и многостраничные сайты: адаптивные, быстрые, с формой заявки. Размещу и подключу домен.</span></p>
+        </div>
+        <div data-testid="panel-tests" class="panel tests">
+          <h3>Проверка качества</h3>
+          <p><span class="sweep">Перед сдачей проверяю сайт на телефонах и компьютерах: формы, ссылки, скорость. Часть проверок автоматизирована: тестирование — моя вторая профессия.</span></p>
         </div>
       </div>
     </section>
@@ -139,7 +139,7 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
             <li>Адаптивный дизайн под телефон и компьютер</li>
             <li>Форма заявки и кнопки связи</li>
             <li>Базовая SEO-настройка</li>
-            <li>Проверка автотестами до сдачи</li>
+            <li>Проверка на телефоне и компьютере до сдачи</li>
             <li>Срок: от 3 дней</li>
           </ul>
           <a data-testid="plan-order" class="btn" href="#order" data-plan="Лендинг">Заказать</a>
@@ -152,7 +152,7 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
             <li>До 6 страниц</li>
             <li>Дизайн под ваш фирменный стиль</li>
             <li>Форма заявки, SEO-настройка, карта сайта</li>
-            <li>Автотесты на ключевые страницы</li>
+            <li>Проверка ключевых страниц и формы</li>
             <li>Срок: от 2 недель</li>
           </ul>
           <a data-testid="plan-order" class="btn" href="#order" data-plan="Корпоративный сайт">Заказать</a>
@@ -165,7 +165,7 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
             <li>От 10 страниц</li>
             <li>Единый дизайн и шаблоны страниц</li>
             <li>Структура под поисковые запросы</li>
-            <li>Автотесты на все страницы и формы</li>
+            <li>Проверка всех страниц и форм</li>
             <li>Срок: от 4 недель</li>
           </ul>
           <a data-testid="plan-order" class="btn" href="#order" data-plan="Многостраничный сайт">Заказать</a>
@@ -180,7 +180,7 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
         <li data-testid="step-1"><strong>Обсуждение задачи</strong><span>Вы рассказываете, что нужно, я уточняю детали.</span></li>
         <li data-testid="step-2"><strong>Структура и смета</strong><span>Согласуем страницы и итоговую цену.</span></li>
         <li data-testid="step-3"><strong>Дизайн и разработка</strong><span>Делаю сайт и показываю промежуточный результат.</span></li>
-        <li data-testid="step-4"><strong>Проверка</strong><span>Автотесты и проверка на телефоне и компьютере.</span></li>
+        <li data-testid="step-4"><strong>Проверка</strong><span>Проверяю сайт на телефоне и компьютере, формы и ссылки.</span></li>
         <li data-testid="step-5"><strong>Публикация</strong><span>Размещаю сайт и подключаю домен.</span></li>
       </ol>
       <p class="plans-note">Сроки считаются после согласования сметы и получения всех материалов.</p>
@@ -235,9 +235,9 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
         </figure>
         <div class="about-text">
           <p data-testid="about-name" class="about-name">Вадим Попченя</p>
-          <p class="about-role">Делаю сайты и автотесты для них</p>
-          <p>Пишу автотесты на Python (pytest, Playwright) и прогоняю их на каждом своём сайте: перед сдачей проверяю, что страницы открываются на телефоне и компьютере, заявки с формы доходят, а ссылки работают.</p>
-          <a data-testid="about-github" class="about-link" href="https://github.com/vpopchenya" rel="me noopener">Код и тесты на GitHub</a>
+          <p class="about-role">Разработчик сайтов</p>
+          <p>Делаю лендинги и сайты для бизнеса: от структуры и дизайна до размещения и домена. Мой плюс — опыт тестировщика: перед сдачей проверяю каждую страницу, форму и ссылку, в том числе автотестами на Python.</p>
+          <a data-testid="about-github" class="about-link" href="https://github.com/vpopchenya" rel="me noopener">Мой GitHub</a>
         </div>
       </div>
     </section>

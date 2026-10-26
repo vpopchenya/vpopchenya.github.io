@@ -61,22 +61,48 @@ def test_cards_have_equal_padding_on_all_sides(page: Page, site_url, card, width
     assert top == right == left == bottom - button_step, f"отступы {top} {right} {bottom} {left}"
 
 
-@pytest.mark.parametrize("width", [1920, 1280, 768, 390])
-@pytest.mark.parametrize("panel", ["panel-tests", "panel-sites"])
-def test_panel_text_has_equal_space_above_below_and_left(page: Page, site_url, panel, width):
-    # Карточки «Чем занимаюсь» по высоте своего текста, а межстрочный «воздух» над заголовком и под
-    # последней строкой срезан (text-box). Тогда сверху, снизу и слева ровно --card-pad (просьба владельца,
-    # 26.10.2026). Справа место зависит от переноса слов, его не проверяем.
-    page.set_viewport_size(viewport(width))
-    page.goto(site_url + "/")
-    card = page.get_by_test_id(panel)
-    assert card.evaluate("el => getComputedStyle(el).textBoxTrim") == "trim-both", "межстрочный интервал не срезан"
-    above, below, left, padding = card.evaluate(
+PANELS = ["panel-sites", "panel-tests"]
+
+
+def _panel_gaps(page: Page, panel):
+    """Место от края карточки до текста: сверху, снизу, слева, и отступ карточки."""
+    return page.get_by_test_id(panel).evaluate(
         """el => { const box = el.getBoundingClientRect();
             const first = el.firstElementChild.getBoundingClientRect();
             const last = el.lastElementChild.getBoundingClientRect();
             return [first.top - box.top, box.bottom - last.bottom, first.left - box.left,
                     parseFloat(getComputedStyle(el).paddingTop)]; }"""
     )
-    for name, gap in [("сверху", above), ("снизу", below), ("слева", left)]:
-        assert abs(gap - padding) <= 1, f"{name} {gap}px, а отступ карточки {padding}px"
+
+
+@pytest.mark.parametrize("width", [1920, 1280, 768, 390])
+def test_panel_text_has_equal_space_above_below_and_left(page: Page, site_url, width):
+    # Межстрочный «воздух» над заголовком и под последней строкой срезан (text-box), поэтому сверху и слева
+    # ровно --card-pad (просьба владельца, 26.10.2026). В ряду карточки одной высоты, так что ровно --card-pad
+    # снизу только у карточки с самым длинным текстом, у второй там больше. Справа место зависит от переноса
+    # слов, его не проверяем.
+    page.set_viewport_size(viewport(width))
+    page.goto(site_url + "/")
+    below_gaps = []
+    for panel in PANELS:
+        card = page.get_by_test_id(panel)
+        assert card.evaluate("el => getComputedStyle(el).textBoxTrim") == "trim-both", "межстрочный интервал не срезан"
+        above, below, left, padding = _panel_gaps(page, panel)
+        for name, gap in [("сверху", above), ("слева", left)]:
+            assert abs(gap - padding) <= 1, f"{panel}: {name} {gap}px, а отступ карточки {padding}px"
+        assert below >= padding - 1, f"{panel}: снизу {below}px, меньше отступа карточки {padding}px"
+        below_gaps.append(below)
+    assert abs(min(below_gaps) - padding) <= 1, f"снизу {below_gaps}px, а отступ карточки {padding}px"
+
+
+@pytest.mark.parametrize("width", [1920, 1280, 768])
+def test_panels_in_a_row_have_equal_height(page: Page, site_url, width):
+    # Разная высота карточек рядом смотрелась неровно (просьба владельца, 26.10.2026).
+    page.set_viewport_size(viewport(width))
+    page.goto(site_url + "/")
+    # offsetTop и offsetHeight берём из раскладки: анимация появления (transform) их не сдвигает.
+    (top_a, height_a), (top_b, height_b) = [
+        page.get_by_test_id(panel).evaluate("el => [el.offsetTop, el.offsetHeight]") for panel in PANELS
+    ]
+    assert top_a == top_b, "карточки не в одном ряду"
+    assert height_a == height_b, f"высоты {height_a} и {height_b}px"

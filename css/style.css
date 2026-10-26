@@ -119,7 +119,7 @@ h1:hover span { color: var(--yellow); transform: translateX(8px); }
   font-family: var(--font); font-weight: 700;
   font-size: clamp(.8rem, 1.6vw, 1.15rem); line-height: 1.15;
   transform: rotate(12deg);
-  animation: stamp .6s cubic-bezier(.2, 1.6, .4, 1) .9s both;
+  animation: stamp .6s cubic-bezier(.2, 1.6, .4, 1) .3s both;
   transition: transform .4s var(--ease), background-color .3s var(--ease);
 }
 .stamp:hover { transform: rotate(-4deg) scale(1.06); background: var(--mint); }
@@ -129,11 +129,10 @@ h1:hover span { color: var(--yellow); transform: translateX(8px); }
   to { transform: rotate(12deg) scale(1); opacity: 1; }
 }
 
-/* page load: the hero lines come in one after another */
-.intro { opacity: 0; transform: translateY(24px); animation: rise .7s var(--ease) forwards; }
-.intro:nth-child(2) { animation-delay: .05s; }
-.intro:nth-child(3) { animation-delay: .25s; }
-.intro:nth-child(4) { animation-delay: .4s; }
+/* page load: the headline and the button are there from the first paint. They used to fade in one
+   after another, and on a phone the first screen stayed empty for about a second. Only the lead line
+   slides in, briefly. */
+.intro.lead { opacity: 0; transform: translateY(12px); animation: rise .3s var(--ease) .05s forwards; }
 @keyframes rise { to { opacity: 1; transform: none; } }
 
 /* sections appear when scrolled into view */
@@ -280,7 +279,16 @@ a.card:active { transform: translateY(-2px); } /* only real links press in, not 
 .plan:nth-child(3) { --accent: var(--pink); }
 .plan h3 { margin: 0; font-family: var(--font); font-weight: 700; font-size: clamp(1.55rem, 2.3vw, 1.9rem); line-height: 1.15; color: var(--accent); overflow-wrap: break-word; text-wrap: balance; }
 .plan .for { margin: 0; font-size: 1rem; opacity: .9; }
-.plan .price { margin: 6px 0 4px; display: flex; align-items: baseline; gap: 8px; }
+.plan .price { margin: 6px 0 4px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; }
+.plan .price .amount { display: inline-flex; align-items: baseline; gap: 8px; }
+
+/* currency switch above the price cards: the pills reuse the form's .chip style */
+.currency { border: 0; margin: 0 0 24px; padding: 0; min-width: 0; }
+.currency legend { float: left; padding: 0; margin: 0 14px 0 0; line-height: 44px; font-weight: 800; font-size: .95rem; }
+.currency .chip { display: inline-block; vertical-align: middle; margin: 0 6px 6px 0; }
+/* CSS only: the checked radio hides the other price. Browsers without :has show both prices. */
+section:has(.currency input[value="byn"]:checked) .amount-rub,
+section:has(.currency input[value="rub"]:checked) .amount-byn { display: none; }
 .plan .price .from { font-weight: 600; opacity: .8; }
 .plan .price strong { font-family: var(--font); font-weight: 700; font-size: clamp(1.7rem, 3.2vw, 2.3rem); line-height: 1.1; }
 .plan ul { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 10px; font-size: 1rem; }
@@ -418,9 +426,10 @@ fieldset.field { border: 0; margin: 0; padding: 0; min-width: 0; }
   .order { padding: 24px; }
   .contacts a, .contacts .soon-row { flex-direction: column; gap: 4px; }
   .contacts .val { text-align: left; }
+  .currency legend { float: none; line-height: 1.4; margin-bottom: 10px; } /* both pills fit in one row */
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
-  .intro, .js .reveal { opacity: 1; transform: none; }
+  .intro.lead, .js .reveal { opacity: 1; transform: none; }
 }

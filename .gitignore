@@ -1,0 +1,5 @@
+# Служебное Python и тестов
+__pycache__/
+.pytest_cache/
+.venv/
+test-results/

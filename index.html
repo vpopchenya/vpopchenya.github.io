@@ -122,12 +122,19 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
 
     <section data-testid="section-prices" class="reveal" aria-labelledby="prices">
       <h2 id="prices">Услуги и цены</h2>
+      <!-- Валюта переключается только CSS (:has), без JS. В браузерах без :has видны обе цены. -->
+      <fieldset data-testid="currency-switch" class="currency">
+        <legend>Цены для</legend>
+        <label data-testid="currency-rub" class="chip"><input type="radio" name="currency" value="rub" checked><span>Россия · ₽</span></label>
+        <label data-testid="currency-byn" class="chip"><input type="radio" name="currency" value="byn"><span>Беларусь · BYN</span></label>
+      </fieldset>
+      <!-- Цены в BYN: пересчёт цен в ₽ по курсу НБРБ на 26.10.2026 (100 ₽ = 3,6597 BYN), округлено до 10 BYN -->
       <!-- ЗАГЛУШКИ: цены ориентировочные, заменить на свои -->
       <div class="plans">
         <article data-testid="plan-landing" class="plan">
           <h3>Лендинг</h3>
           <p class="for">Одна страница, чтобы продать одну услугу или товар.</p>
-          <p data-testid="plan-price" class="price"><span class="from">от</span><strong>15&nbsp;000&nbsp;₽</strong></p>
+          <p data-testid="plan-price" class="price"><span data-testid="plan-price-rub" class="amount amount-rub"><span class="from">от</span><strong>15&nbsp;000&nbsp;₽</strong></span><span data-testid="plan-price-byn" class="amount amount-byn"><span class="from">от</span><strong>550&nbsp;BYN</strong></span></p>
           <ul>
             <li>Адаптивный дизайн под телефон и компьютер</li>
             <li>Форма заявки и кнопки связи</li>
@@ -140,7 +147,7 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
         <article data-testid="plan-corporate" class="plan">
           <h3>Корпоративный сайт</h3>
           <p class="for">Сайт компании: услуги, о компании, контакты.</p>
-          <p data-testid="plan-price" class="price"><span class="from">от</span><strong>40&nbsp;000&nbsp;₽</strong></p>
+          <p data-testid="plan-price" class="price"><span data-testid="plan-price-rub" class="amount amount-rub"><span class="from">от</span><strong>40&nbsp;000&nbsp;₽</strong></span><span data-testid="plan-price-byn" class="amount amount-byn"><span class="from">от</span><strong>1&nbsp;460&nbsp;BYN</strong></span></p>
           <ul>
             <li>До 6 страниц</li>
             <li>Дизайн под ваш фирменный стиль</li>
@@ -153,7 +160,7 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
         <article data-testid="plan-multipage" class="plan">
           <h3>Многостраничный сайт</h3>
           <p class="for">Каталог, блог или большой сайт с множеством разделов.</p>
-          <p data-testid="plan-price" class="price"><span class="from">от</span><strong>70&nbsp;000&nbsp;₽</strong></p>
+          <p data-testid="plan-price" class="price"><span data-testid="plan-price-rub" class="amount amount-rub"><span class="from">от</span><strong>70&nbsp;000&nbsp;₽</strong></span><span data-testid="plan-price-byn" class="amount amount-byn"><span class="from">от</span><strong>2&nbsp;560&nbsp;BYN</strong></span></p>
           <ul>
             <li>От 10 страниц</li>
             <li>Единый дизайн и шаблоны страниц</li>

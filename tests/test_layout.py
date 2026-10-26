@@ -63,15 +63,20 @@ def test_cards_have_equal_padding_on_all_sides(page: Page, site_url, card, width
 
 @pytest.mark.parametrize("width", [1920, 1280, 768, 390])
 @pytest.mark.parametrize("panel", ["panel-tests", "panel-sites"])
-def test_panel_text_has_equal_space_above_and_below(page: Page, site_url, panel, width):
-    # Карточки «Чем занимаюсь» одной высоты, а строк в них разное число. Текст стоит по центру,
-    # иначе у короткой карточки снизу оставалась большая пустота (жалоба владельца, 26.10.2026).
+def test_panel_text_has_equal_space_above_below_and_left(page: Page, site_url, panel, width):
+    # Карточки «Чем занимаюсь» по высоте своего текста, а межстрочный «воздух» над заголовком и под
+    # последней строкой срезан (text-box). Тогда сверху, снизу и слева ровно --card-pad (просьба владельца,
+    # 26.10.2026). Справа место зависит от переноса слов, его не проверяем.
     page.set_viewport_size(viewport(width))
     page.goto(site_url + "/")
-    above, below = page.get_by_test_id(panel).evaluate(
+    card = page.get_by_test_id(panel)
+    assert card.evaluate("el => getComputedStyle(el).textBoxTrim") == "trim-both", "межстрочный интервал не срезан"
+    above, below, left, padding = card.evaluate(
         """el => { const box = el.getBoundingClientRect();
             const first = el.firstElementChild.getBoundingClientRect();
             const last = el.lastElementChild.getBoundingClientRect();
-            return [first.top - box.top, box.bottom - last.bottom]; }"""
+            return [first.top - box.top, box.bottom - last.bottom, first.left - box.left,
+                    parseFloat(getComputedStyle(el).paddingTop)]; }"""
     )
-    assert abs(above - below) <= 1, f"над текстом {above}px, под текстом {below}px"
+    for name, gap in [("сверху", above), ("снизу", below), ("слева", left)]:
+        assert abs(gap - padding) <= 1, f"{name} {gap}px, а отступ карточки {padding}px"

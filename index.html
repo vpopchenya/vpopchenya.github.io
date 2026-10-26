@@ -224,6 +224,24 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
       </div>
     </section>
 
+    <section data-testid="section-about" class="reveal" aria-labelledby="about">
+      <h2 id="about">Обо мне</h2>
+      <div class="about">
+        <figure class="about-figure">
+          <img data-testid="about-photo" class="about-photo" src="img/vadim-480.webp"
+               srcset="img/vadim-480.webp 480w, img/vadim-960.webp 960w"
+               sizes="(max-width: 760px) 280px, 360px" width="480" height="600"
+               loading="lazy" decoding="async" alt="Вадим Попченя">
+        </figure>
+        <div class="about-text">
+          <p data-testid="about-name" class="about-name">Вадим Попченя</p>
+          <p class="about-role">Делаю сайты и автотесты для них</p>
+          <p>Пишу автотесты на Python (pytest, Playwright) и прогоняю их на каждом своём сайте: перед сдачей проверяю, что страницы открываются на телефоне и компьютере, заявки с формы доходят, а ссылки работают.</p>
+          <a data-testid="about-github" class="about-link" href="https://github.com/vpopchenya" rel="me noopener">Код и тесты на GitHub</a>
+        </div>
+      </div>
+    </section>
+
     <section data-testid="section-order" class="reveal" aria-labelledby="order">
       <h2 id="order">Заказать сайт</h2>
       <div class="order">

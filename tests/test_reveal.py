@@ -8,7 +8,7 @@ from playwright.sync_api import Page
 
 from conftest import HOME_PAGES, viewport
 
-SECTIONS = ["section-what", "section-prices", "section-works", "section-order", "section-contacts"]
+SECTIONS = ["section-what", "section-prices", "section-works", "section-about", "section-order", "section-contacts"]
 
 
 def section_opacities(page: Page):

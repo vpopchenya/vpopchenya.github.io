@@ -154,11 +154,12 @@ h1:hover span { color: var(--yellow); transform: translateX(8px); }
 section { padding: 0 0 var(--section-gap); }
 h2 { font-family: var(--font); font-weight: 700; font-size: clamp(1.7rem, 4.5vw, 2.8rem); line-height: 1.1; margin: 0 0 var(--heading-gap); }
 
-.panels { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-/* the text is centred vertically: the cards share one height, and a card with fewer lines
-   still gets the same space above and below its text */
+/* each card is as tall as its own text (align-items: start), so the space above, below and on the left
+   is the same --card-pad. text-box trims the invisible line-height air above the heading and below
+   the last line; browsers without it keep a few extra pixels there, which is fine */
+.panels { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
 .panel {
-  position: relative; display: flex; flex-direction: column; justify-content: center;
+  position: relative; text-box: trim-both cap alphabetic;
   border-radius: 32px; padding: var(--card-pad); color: var(--ink); background: var(--panel-color);
   transition: transform .4s var(--ease), box-shadow .4s var(--ease);
 }
@@ -328,6 +329,20 @@ section:has(.currency input[value="rub"]:checked) .amount-byn { display: none; }
 .steps strong { font-weight: 700; }
 .steps span { font-size: .95rem; opacity: .9; }
 
+/* about me: the photo in a rounded frame, a thin yellow frame offset behind it, no glow */
+.about { display: grid; grid-template-columns: minmax(0, 360px) 1fr; gap: 56px; align-items: center; }
+.about-figure { position: relative; isolation: isolate; margin: 0 14px 14px 0; max-width: 360px; }
+.about-figure::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  border: 2px solid var(--yellow); border-radius: 32px; transform: translate(14px, 14px);
+}
+.about-photo { display: block; width: 100%; height: auto; border-radius: 32px; background: var(--blue-deep); }
+.about-text p { margin: 0 0 16px; max-width: 34em; }
+.about-text .about-name { margin: 0 0 4px; font-weight: 700; font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.15; }
+.about-text .about-role { margin: 0 0 20px; font-weight: 800; color: var(--yellow); }
+.about-link { color: var(--pink); font-weight: 800; transition: color .3s var(--ease); }
+.about-link:hover { color: var(--mint); }
+
 /* order form */
 .order {
   padding: var(--card-pad);
@@ -454,6 +469,8 @@ fieldset.field { border: 0; margin: 0; padding: 0; min-width: 0; }
   .contacts a, .contacts .soon-row { flex-direction: column; gap: 4px; }
   .contacts .val { text-align: left; }
   .currency legend { float: none; line-height: 1.4; margin-bottom: 10px; } /* both pills fit in one row */
+  .about { grid-template-columns: 1fr; gap: 32px; }
+  .about-figure { max-width: 280px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

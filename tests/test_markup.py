@@ -11,11 +11,12 @@ from conftest import ALL_PAGES, HOME_PAGES
 HEADER = {"logo", "lang-switch", "lang-ru", "lang-en"}
 HOME_COMMON = HEADER | {
     "skip-link", "stamp", "hero-title", "hero-order",
-    "section-what", "section-prices", "section-works", "section-order", "section-contacts",
+    "section-what", "section-prices", "section-works", "section-about", "section-order", "section-contacts",
     "panel-tests", "panel-sites",
     "plan-landing", "plan-corporate", "plan-multipage", "plan-price", "plan-order", "plans-note",
     "section-process", "step-1", "step-2", "step-3", "step-4", "step-5",
     "work-card-1", "work-card-2", "works-order",
+    "about-photo", "about-name", "about-github",
     "order-form", "form-note", "form-name", "form-contact",
     "type-landing", "type-corporate", "type-multipage", "type-other", "type-unsure",
     "form-other-box", "form-other", "form-unsure-hint", "form-message", "form-botcheck",

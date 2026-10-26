@@ -218,6 +218,24 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
       </div>
     </section>
 
+    <section data-testid="section-about" class="reveal" aria-labelledby="about">
+      <h2 id="about">About me</h2>
+      <div class="about">
+        <figure class="about-figure">
+          <img data-testid="about-photo" class="about-photo" src="../img/vadim-480.webp"
+               srcset="../img/vadim-480.webp 480w, ../img/vadim-960.webp 960w"
+               sizes="(max-width: 760px) 280px, 360px" width="480" height="600"
+               loading="lazy" decoding="async" alt="Vadim Popchenya">
+        </figure>
+        <div class="about-text">
+          <p data-testid="about-name" class="about-name">Vadim Popchenya</p>
+          <p class="about-role">I build websites and the automated tests for them</p>
+          <p>I write automated tests in Python (pytest, Playwright) and run them on every site I build: before handover I check that pages open on phones and desktops, form requests arrive and links work.</p>
+          <a data-testid="about-github" class="about-link" href="https://github.com/vpopchenya" rel="me noopener">Code and tests on GitHub</a>
+        </div>
+      </div>
+    </section>
+
     <section data-testid="section-order" class="reveal" aria-labelledby="order">
       <h2 id="order">Order a site</h2>
       <div class="order">

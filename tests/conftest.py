@@ -10,6 +10,19 @@ import pytest
 
 SITE_ROOT = Path(__file__).resolve().parent.parent
 
+# Ключевые ширины: основные экраны и обе стороны каждой точки перестройки вёрстки в CSS (900 и 760 px).
+# Ошибки вёрстки чаще всего прячутся как раз на этих границах.
+ALL_WIDTHS = [1920, 1280, 901, 900, 768, 761, 760, 390]
+HOME_PAGES = ["/", "/en/"]
+# 404 открываем напрямую: python -m http.server не отдаёт нашу 404.html на несуществующий адрес.
+ALL_PAGES = HOME_PAGES + ["/privacy/", "/en/privacy/", "/404.html"]
+_HEIGHTS = {1920: 1080, 390: 844}
+
+
+def viewport(width):
+    """Размер окна для ширины: типичная высота экрана такой ширины."""
+    return {"width": width, "height": _HEIGHTS.get(width, 900)}
+
 
 def _free_port():
     with socket.socket() as s:
@@ -37,3 +50,16 @@ def site_url():
             time.sleep(0.1)
     yield url
     server.terminate()
+
+
+@pytest.fixture
+def page_problems(page):
+    """Собирает ошибки страницы: ошибки в консоли (в том числе нарушения CSP) и ответы 4xx/5xx.
+
+    Подписка ставится до page.goto, поэтому ловит и то, что случается при загрузке.
+    """
+    problems = {"console": [], "responses": []}
+    page.on("console", lambda msg: msg.type == "error" and problems["console"].append(msg.text))
+    page.on("pageerror", lambda err: problems["console"].append(str(err)))
+    page.on("response", lambda r: r.status >= 400 and problems["responses"].append(f"{r.status} {r.url}"))
+    return problems

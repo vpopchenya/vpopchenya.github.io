@@ -122,19 +122,13 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
 
     <section data-testid="section-prices" class="reveal" aria-labelledby="prices">
       <h2 id="prices">Services and prices</h2>
-      <!-- currency: pure CSS (:has), no JS; browsers without :has show both prices -->
-      <fieldset data-testid="currency-switch" class="currency">
-        <legend>Prices for</legend>
-        <label data-testid="currency-rub" class="chip"><input type="radio" name="currency" value="rub" checked><span>Russia · RUB</span></label>
-        <label data-testid="currency-byn" class="chip"><input type="radio" name="currency" value="byn"><span>Belarus · BYN</span></label>
-      </fieldset>
-      <!-- BYN prices: the RUB prices converted at the NBRB rate of 26.10.2026 (100 RUB = 3.6597 BYN), rounded to 10 BYN -->
+      <!-- USD prices: the RUB prices converted at the NBRB cross rate of 26.10.2026 (1 USD = 2.9460 BYN, 100 RUB = 3.6597 BYN, so 1 USD ≈ 80.5 RUB), rounded to $10 -->
       <!-- PLACEHOLDERS: prices are approximate, replace with your own -->
       <div class="plans">
         <article data-testid="plan-landing" class="plan">
           <h3>Landing page</h3>
           <p class="for">One page to sell one service or product.</p>
-          <p data-testid="plan-price" class="price"><span data-testid="plan-price-rub" class="amount amount-rub"><span class="from">from</span><strong>₽15,000</strong></span><span data-testid="plan-price-byn" class="amount amount-byn"><span class="from">from</span><strong>550&nbsp;BYN</strong></span></p>
+          <p data-testid="plan-price" class="price"><span data-testid="plan-price-usd" class="amount"><span class="from">from</span><strong>$190</strong></span></p>
           <ul>
             <li>Responsive design for phone and desktop</li>
             <li>Contact form and contact buttons</li>
@@ -147,7 +141,7 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
         <article data-testid="plan-corporate" class="plan">
           <h3>Corporate website</h3>
           <p class="for">A company site: services, about, contacts.</p>
-          <p data-testid="plan-price" class="price"><span data-testid="plan-price-rub" class="amount amount-rub"><span class="from">from</span><strong>₽40,000</strong></span><span data-testid="plan-price-byn" class="amount amount-byn"><span class="from">from</span><strong>1,460&nbsp;BYN</strong></span></p>
+          <p data-testid="plan-price" class="price"><span data-testid="plan-price-usd" class="amount"><span class="from">from</span><strong>$500</strong></span></p>
           <ul>
             <li>Up to 6 pages</li>
             <li>Design that follows your brand</li>
@@ -160,7 +154,7 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
         <article data-testid="plan-multipage" class="plan">
           <h3>Multi-page website</h3>
           <p class="for">A catalog, a blog or a large site with many sections.</p>
-          <p data-testid="plan-price" class="price"><span data-testid="plan-price-rub" class="amount amount-rub"><span class="from">from</span><strong>₽70,000</strong></span><span data-testid="plan-price-byn" class="amount amount-byn"><span class="from">from</span><strong>2,560&nbsp;BYN</strong></span></p>
+          <p data-testid="plan-price" class="price"><span data-testid="plan-price-usd" class="amount"><span class="from">from</span><strong>$870</strong></span></p>
           <ul>
             <li>10 pages or more</li>
             <li>One design and reusable page templates</li>

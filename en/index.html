@@ -171,7 +171,19 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
           <a data-testid="plan-order" class="btn" href="#order" data-plan="Multi-page website">Order</a>
         </article>
       </div>
-      <p class="plans-note">Prices are approximate. I'll give an exact quote after a short chat about your project.</p>
+      <p data-testid="plans-note" class="plans-note">Prices are approximate. I'll give an exact quote after a short chat about your project. Domain and hosting are paid separately, and you provide the texts and photos. Scope, number of revisions and support after delivery are fixed in the estimate.</p>
+    </section>
+
+    <section data-testid="section-process" class="reveal" aria-labelledby="process">
+      <h2 id="process">How the work goes</h2>
+      <ol class="steps">
+        <li data-testid="step-1"><strong>Discuss the task</strong><span>You tell me what you need, I clarify the details.</span></li>
+        <li data-testid="step-2"><strong>Structure and estimate</strong><span>We agree on the pages and the final price.</span></li>
+        <li data-testid="step-3"><strong>Design and build</strong><span>I build the site and show you interim results.</span></li>
+        <li data-testid="step-4"><strong>Testing</strong><span>Automated tests plus a check on phone and desktop.</span></li>
+        <li data-testid="step-5"><strong>Launch</strong><span>I publish the site and connect the domain.</span></li>
+      </ol>
+      <p class="plans-note">Deadlines count from the moment the estimate is agreed and all materials are received.</p>
     </section>
 
     <section data-testid="section-works" class="reveal" aria-labelledby="works">
@@ -273,8 +285,6 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
       <h2 id="contacts">Contacts</h2>
       <ul class="contacts">
         <li><a data-testid="contact-github" href="https://github.com/vpopchenya" rel="me noopener"><span>GitHub</span><span class="val">github.com/vpopchenya</span></a></li>
-        <!-- PLACEHOLDERS: when real contacts exist, replace <div class="soon-row"> with links like the GitHub one:
-             <a href="https://t.me/YOUR_NAME" rel="me noopener">…</a> and <a href="mailto:YOUR@ADDRESS">…</a> -->
         <li><a data-testid="contact-telegram" href="https://t.me/Vadik_QA_1" rel="me noopener"><span>Telegram</span><span class="val">@Vadik_QA_1</span></a></li>
         <li><a data-testid="contact-email" href="mailto:vadim.popchenya0721@gmail.com"><span>Email</span><span class="val">vadim.popchenya0721@gmail.com</span></a></li>
       </ul>

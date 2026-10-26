@@ -171,7 +171,19 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
           <a data-testid="plan-order" class="btn" href="#order" data-plan="Многостраничный сайт">Заказать</a>
         </article>
       </div>
-      <p class="plans-note">Цены ориентировочные. Точную стоимость назову после короткого разговора о вашей задаче.</p>
+      <p data-testid="plans-note" class="plans-note">Цены ориентировочные. Точную стоимость назову после короткого разговора о вашей задаче. Домен и хостинг оплачиваются отдельно, тексты и фотографии предоставляет заказчик. Состав работ, число правок и поддержку после сдачи фиксируем в смете.</p>
+    </section>
+
+    <section data-testid="section-process" class="reveal" aria-labelledby="process">
+      <h2 id="process">Как проходит работа</h2>
+      <ol class="steps">
+        <li data-testid="step-1"><strong>Обсуждение задачи</strong><span>Вы рассказываете, что нужно, я уточняю детали.</span></li>
+        <li data-testid="step-2"><strong>Структура и смета</strong><span>Согласуем страницы и итоговую цену.</span></li>
+        <li data-testid="step-3"><strong>Дизайн и разработка</strong><span>Делаю сайт и показываю промежуточный результат.</span></li>
+        <li data-testid="step-4"><strong>Проверка</strong><span>Автотесты и проверка на телефоне и компьютере.</span></li>
+        <li data-testid="step-5"><strong>Публикация</strong><span>Размещаю сайт и подключаю домен.</span></li>
+      </ol>
+      <p class="plans-note">Сроки считаются после согласования сметы и получения всех материалов.</p>
     </section>
 
     <section data-testid="section-works" class="reveal" aria-labelledby="works">
@@ -273,8 +285,6 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
       <h2 id="contacts">Контакты</h2>
       <ul class="contacts">
         <li><a data-testid="contact-github" href="https://github.com/vpopchenya" rel="me noopener"><span>GitHub</span><span class="val">github.com/vpopchenya</span></a></li>
-        <!-- ЗАГЛУШКИ: когда появятся настоящие контакты, замените <div class="soon-row"> на ссылки, как у GitHub:
-             <a href="https://t.me/ВАШ_НИК" rel="me noopener">…</a> и <a href="mailto:ВАШ@АДРЕС">…</a> -->
         <li><a data-testid="contact-telegram" href="https://t.me/Vadik_QA_1" rel="me noopener"><span>Telegram</span><span class="val">@Vadik_QA_1</span></a></li>
         <li><a data-testid="contact-email" href="mailto:vadim.popchenya0721@gmail.com"><span>Email</span><span class="val">vadim.popchenya0721@gmail.com</span></a></li>
       </ul>

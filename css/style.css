@@ -300,6 +300,15 @@ section:has(.currency input[value="rub"]:checked) .amount-byn { display: none; }
 .plan .btn { margin-top: auto; align-self: flex-start; }
 .plans-note { margin: 24px 0 0; max-width: 40em; font-size: 1rem; opacity: .85; }
 
+/* "how the work goes": numbered steps, accent colours cycle like the price cards */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; counter-reset: step; }
+.steps li { --accent: var(--yellow); counter-increment: step; display: flex; flex-direction: column; gap: 6px; padding: 20px; border: 2px solid rgba(255, 255, 255, .25); border-radius: 24px; }
+.steps li:nth-child(3n+2) { --accent: var(--mint); }
+.steps li:nth-child(3n+3) { --accent: var(--pink); }
+.steps li::before { content: counter(step); font-family: var(--font); font-weight: 700; font-size: 1.8rem; line-height: 1; color: var(--accent); }
+.steps strong { font-weight: 700; }
+.steps span { font-size: .95rem; opacity: .9; }
+
 /* order form */
 .order {
   padding: 36px;

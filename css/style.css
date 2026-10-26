@@ -11,7 +11,7 @@
   --ink: #14103a;
   --white: #ffffff;
   --gutter: 20px;
-  --card-pad: 32px;      /* inner padding of every card: the same on all four sides */
+  --card-pad: 28px;      /* inner padding of every card: the same on all four sides */
   --section-gap: 88px;   /* space between sections */
   --heading-gap: 32px;   /* space under a section heading: smaller than above it, so the heading sticks to its content */
   --ease: cubic-bezier(.22, .8, .24, 1);
@@ -154,16 +154,26 @@ h1:hover span { color: var(--yellow); transform: translateX(8px); }
 section { padding: 0 0 var(--section-gap); }
 h2 { font-family: var(--font); font-weight: 700; font-size: clamp(1.7rem, 4.5vw, 2.8rem); line-height: 1.1; margin: 0 0 var(--heading-gap); }
 
-.panels { display: grid; grid-template-columns: 1.25fr 1fr; gap: 20px; }
+.panels { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+/* the text is centred vertically: the cards share one height, and a card with fewer lines
+   still gets the same space above and below its text */
 .panel {
-  border-radius: 32px; padding: var(--card-pad); color: var(--ink);
-  transition: transform .4s var(--ease), border-radius .4s var(--ease);
+  position: relative; display: flex; flex-direction: column; justify-content: center;
+  border-radius: 32px; padding: var(--card-pad); color: var(--ink); background: var(--panel-color);
+  transition: transform .4s var(--ease), box-shadow .4s var(--ease);
 }
-.panel:hover { transform: translateY(-14px) rotate(-.8deg); }
-.panel.tests { background: var(--yellow); --mark: var(--white); }
-/* the big corner must stay clear of the last line of text: test_sites_panel_text_stays_inside_rounded_corner */
-.panel.sites { background: var(--pink); border-radius: 32px 32px 32px 96px; --mark: var(--mint); }
-.panel.sites:hover { border-radius: 32px 32px 32px 32px; transform: translateY(-14px) rotate(.8deg); }
+.panel.tests { --panel-color: var(--yellow); --mark: var(--white); }
+.panel.sites { --panel-color: var(--pink); --mark: var(--mint); }
+/* hover: the card lifts like the price cards, and a "test passed" tick is stamped in the corner */
+.panel:hover { transform: translateY(-8px); box-shadow: 0 26px 44px -20px color-mix(in srgb, var(--panel-color) 80%, transparent); }
+.panel::after {
+  content: "✓"; position: absolute; top: var(--card-pad); right: var(--card-pad);
+  width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--ink); color: var(--panel-color); font-weight: 800; font-size: 1.1rem;
+  opacity: 0; transform: scale(.4) rotate(-40deg);
+  transition: opacity .25s var(--ease), transform .45s cubic-bezier(.2, 1.6, .4, 1);
+}
+.panel:hover::after { opacity: 1; transform: none; }
 .panel h3 { font-family: var(--font); font-weight: 700; font-size: 1.6rem; margin: 0 0 12px; }
 .panel p { margin: 0; }
 .panel .sweep:hover { color: var(--ink); }
@@ -441,8 +451,6 @@ fieldset.field { border: 0; margin: 0; padding: 0; min-width: 0; }
   .hero { padding: 24px 0 72px; }
   .stamp { position: static; margin: 0 0 24px; }
   .panels, .cards, .form-grid { grid-template-columns: 1fr; }
-  /* a big corner on a narrow card cuts into the last line of text */
-  .panel.sites { border-radius: 32px 32px 32px 64px; }
   .contacts a, .contacts .soon-row { flex-direction: column; gap: 4px; }
   .contacts .val { text-align: left; }
   .currency legend { float: none; line-height: 1.4; margin-bottom: 10px; } /* both pills fit in one row */

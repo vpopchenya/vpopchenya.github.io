@@ -47,29 +47,6 @@ def test_nothing_sticks_out_past_the_edges(page: Page, site_url, path, width):
     assert not sticking_out, f"вылезает за край экрана: {sticking_out}"
 
 
-@pytest.mark.parametrize("width", ALL_WIDTHS)
-def test_sites_panel_text_stays_inside_rounded_corner(page: Page, site_url, width):
-    # У карточки «Сайты» большое скругление снизу слева. На телефоне оно срезало последнюю строку.
-    page.set_viewport_size(viewport(width))
-    page.goto(site_url + "/")
-    corner_hit = page.get_by_test_id("panel-sites").evaluate(
-        """panel => {
-            const box = panel.getBoundingClientRect();
-            const r = parseFloat(getComputedStyle(panel).borderBottomLeftRadius);
-            const range = document.createRange();
-            range.selectNodeContents(panel.querySelector('p'));
-            const lines = [...range.getClientRects()];
-            const last = lines[lines.length - 1];
-            // Расстояние от левого нижнего угла карточки до начала последней строки.
-            const dx = last.left - box.left, dy = box.bottom - last.bottom;
-            if (dx >= r || dy >= r) return null;  // строка вне зоны скругления
-            const inside = (r - dx) ** 2 + (r - dy) ** 2 <= r ** 2;
-            return inside ? null : {dx, dy, r};
-        }"""
-    )
-    assert corner_hit is None, f"последняя строка попала на скругление: {corner_hit}"
-
-
 @pytest.mark.parametrize("width", [1280, 390])
 @pytest.mark.parametrize("card", ["panel-tests", "panel-sites", "plan-landing", "work-card-1"])
 def test_cards_have_equal_padding_on_all_sides(page: Page, site_url, card, width):
@@ -82,3 +59,19 @@ def test_cards_have_equal_padding_on_all_sides(page: Page, site_url, card, width
     # Под жёлтой кнопкой есть ступенька 6 px: снизу отступ больше ровно на неё, чтобы на глаз было поровну.
     button_step = 6 if card == "plan-landing" else 0
     assert top == right == left == bottom - button_step, f"отступы {top} {right} {bottom} {left}"
+
+
+@pytest.mark.parametrize("width", [1920, 1280, 768, 390])
+@pytest.mark.parametrize("panel", ["panel-tests", "panel-sites"])
+def test_panel_text_has_equal_space_above_and_below(page: Page, site_url, panel, width):
+    # Карточки «Чем занимаюсь» одной высоты, а строк в них разное число. Текст стоит по центру,
+    # иначе у короткой карточки снизу оставалась большая пустота (жалоба владельца, 26.10.2026).
+    page.set_viewport_size(viewport(width))
+    page.goto(site_url + "/")
+    above, below = page.get_by_test_id(panel).evaluate(
+        """el => { const box = el.getBoundingClientRect();
+            const first = el.firstElementChild.getBoundingClientRect();
+            const last = el.lastElementChild.getBoundingClientRect();
+            return [first.top - box.top, box.bottom - last.bottom]; }"""
+    )
+    assert abs(above - below) <= 1, f"над текстом {above}px, под текстом {below}px"

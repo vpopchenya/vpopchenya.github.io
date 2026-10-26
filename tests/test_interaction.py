@@ -45,3 +45,18 @@ def test_language_switch_both_ways(page: Page, site_url):
     page.get_by_test_id("lang-ru").click()
     expect(page).to_have_url(site_url + "/")
     expect(page.locator("html")).to_have_attribute("lang", "ru")
+
+
+@pytest.mark.parametrize("panel", ["panel-tests", "panel-sites"])
+def test_panel_hover_stamps_a_tick(page: Page, site_url, panel):
+    # При наведении карточка «Чем занимаюсь» приподнимается, а в углу появляется галочка «тест пройден».
+    page.goto(site_url + "/")
+    card = page.get_by_test_id(panel)
+    card.scroll_into_view_if_needed()
+    page.wait_for_timeout(800)
+    tick_opacity = "el => getComputedStyle(el, '::after').opacity"
+    assert card.evaluate(tick_opacity) == "0", "галочка видна без наведения"
+    card.hover()
+    page.wait_for_timeout(600)
+    assert card.evaluate(tick_opacity) == "1", "галочка не появилась при наведении"
+    assert card.evaluate("el => getComputedStyle(el).transform") != "none", "карточка не приподнялась"

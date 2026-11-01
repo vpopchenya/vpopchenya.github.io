@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Security policy: only this site's own files, plus the form service. If you change the inline script below, its hash here must change too. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-WZRJfWvsnNCPcxzZwvyhovnZGqhZaC+8gPGPRbx6wTk='; style-src 'self'; img-src 'self'; connect-src https://api.web3forms.com; base-uri 'none'; form-action 'none'">
+<!-- Security policy: only this site's own files, no outside connections. If you change the inline script below, its hash here must change too. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-WZRJfWvsnNCPcxzZwvyhovnZGqhZaC+8gPGPRbx6wTk='; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Вадим Попченя — разработка сайтов: лендинги и сайты для бизнеса</title>
 <meta name="description" content="Делаю лендинги, корпоративные и многостраничные сайты под ключ: удобные на телефоне, быстрые, с формой заявки. Перед сдачей проверяю каждый сайт.">
@@ -74,16 +74,6 @@
     <rect x="132" y="200" width="96" height="44" rx="10"/>
     <rect x="240" y="200" width="96" height="44" rx="10"/>
   </svg>
-  <!-- test code -->
-  <pre class="bg-item bg-code-a" data-speed="0.3">&lt;<span class="kw">section</span> class=<span class="ok">"hero"</span>&gt;
-  &lt;<span class="kw">h1</span>&gt;Новый сайт&lt;/<span class="kw">h1</span>&gt;
-  &lt;<span class="kw">a</span> class=<span class="ok">"btn"</span> href=<span class="ok">"#order"</span>&gt;Заказать&lt;/<span class="kw">a</span>&gt;
-&lt;/<span class="kw">section</span>&gt;</pre>
-  <pre class="bg-item bg-code-b" data-speed="0.16">tests/test_ui.py::test_menu      <span class="ok">PASSED</span>
-tests/test_ui.py::test_form      <span class="ok">PASSED</span>
-tests/test_api.py::test_status   <span class="ok">PASSED</span>
-tests/test_api.py::test_login    <span class="ok">PASSED</span>
-<span class="ok">=========== 4 passed in 2.31s ===========</span></pre>
 </div>
 
 <div class="wrap">
@@ -102,7 +92,7 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
         <span>проверено</span>
       </div>
       <h1 data-testid="hero-title" class="intro"><span>Делаю сайты и сам проверяю их</span></h1>
-      <p class="lead intro"><span class="sweep">Лендинги, корпоративные и многостраничные сайты под ключ: дизайн, вёрстка, форма заявки, размещение и домен. Перед сдачей проверяю каждую страницу на телефоне и компьютере.</span></p>
+      <p class="lead intro"><span class="sweep">Лендинги и сайты для бизнеса под ключ: от дизайна до домена. Удобные на телефоне, с понятным путём к заявке. Перед сдачей сам проверяю каждую страницу, форму и ссылку.</span></p>
       <div class="intro"><a data-testid="hero-order" class="btn" href="#order">Заказать сайт</a></div>
     </div>
 
@@ -118,6 +108,12 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
           <p><span class="sweep">Перед сдачей проверяю сайт на телефонах и компьютерах: формы, ссылки, скорость. Часть проверок автоматизирована: тестирование — моя вторая профессия.</span></p>
         </div>
       </div>
+      <ul data-testid="trust-list" class="trust">
+        <li><strong>Адаптивная вёрстка</strong><span>Сайт удобен на телефоне, планшете и компьютере.</span></li>
+        <li><strong>Формы и ссылки</strong><span>Проверяю, что заявка доходит, а ссылки не ведут в никуда.</span></li>
+        <li><strong>Телефоны и компьютеры</strong><span>Смотрю каждую страницу на разных размерах экрана.</span></li>
+        <li><strong>Автотесты на Python</strong><span>Ключевые проверки повторяются после каждой правки.</span></li>
+      </ul>
     </section>
 
     <section data-testid="section-prices" class="reveal" aria-labelledby="prices">
@@ -142,7 +138,7 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
             <li>Проверка на телефоне и компьютере до сдачи</li>
             <li>Срок: от 3 дней</li>
           </ul>
-          <a data-testid="plan-order" class="btn" href="#order" data-plan="Лендинг">Заказать</a>
+          <a data-testid="plan-order" class="btn" href="#order">Заказать</a>
         </article>
         <article data-testid="plan-corporate" class="plan">
           <h3>Корпоративный сайт</h3>
@@ -155,7 +151,7 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
             <li>Проверка ключевых страниц и формы</li>
             <li>Срок: от 2 недель</li>
           </ul>
-          <a data-testid="plan-order" class="btn" href="#order" data-plan="Корпоративный сайт">Заказать</a>
+          <a data-testid="plan-order" class="btn" href="#order">Заказать</a>
         </article>
         <article data-testid="plan-multipage" class="plan">
           <h3>Многостраничный сайт</h3>
@@ -168,7 +164,7 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
             <li>Проверка всех страниц и форм</li>
             <li>Срок: от 4 недель</li>
           </ul>
-          <a data-testid="plan-order" class="btn" href="#order" data-plan="Многостраничный сайт">Заказать</a>
+          <a data-testid="plan-order" class="btn" href="#order">Заказать</a>
         </article>
       </div>
       <p data-testid="plans-note" class="plans-note">Цены ориентировочные. Точную стоимость назову после короткого разговора о вашей задаче. Домен и хостинг оплачиваются отдельно, тексты и фотографии предоставляет заказчик. Состав работ, число правок и поддержку после сдачи фиксируем в смете.</p>
@@ -188,38 +184,33 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
 
     <section data-testid="section-works" class="reveal" aria-labelledby="works">
       <h2 id="works">Мои сайты</h2>
-      <!-- ЗАГЛУШКИ: когда появится настоящий сайт, замените <div class="card"> на <a class="card" href="адрес сайта">, впишите тип и название, уберите «Скоро» -->
+      <!-- Настоящие работы. Клиентскую работу добавляйте такой же карточкой: скриншот, задача, технологии, ссылка. Демо-проекты подписывайте в .kind как демо. -->
       <div class="cards">
-        <div data-testid="work-card-1" class="card">
-          <svg class="preview" viewBox="0 0 120 90" aria-hidden="true">
-            <rect x="2" y="2" width="116" height="86" rx="10"/>
-            <line x1="2" y1="20" x2="118" y2="20"/>
-            <circle class="solid" cx="14" cy="11" r="2.5"/><circle class="solid" cx="23" cy="11" r="2.5"/>
-            <rect class="solid" x="12" y="30" width="50" height="8" rx="4"/>
-            <rect class="solid" x="12" y="44" width="38" height="5" rx="2.5"/>
-            <circle cx="88" cy="42" r="14"/>
-            <rect x="12" y="62" width="30" height="16" rx="5"/><rect x="46" y="62" width="30" height="16" rx="5"/><rect x="80" y="62" width="30" height="16" rx="5"/>
-          </svg>
-          <span class="kind">Сайт-визитка</span>
-          <span class="title">Место для первого проекта</span>
-          <span class="soon">Скоро</span>
-        </div>
-        <div data-testid="work-card-2" class="card">
-          <svg class="preview" viewBox="0 0 120 90" aria-hidden="true">
-            <rect x="2" y="2" width="116" height="86" rx="10"/>
-            <line x1="2" y1="20" x2="118" y2="20"/>
-            <circle class="solid" cx="14" cy="11" r="2.5"/><circle class="solid" cx="23" cy="11" r="2.5"/>
-            <rect class="solid" x="26" y="30" width="68" height="9" rx="4.5"/>
-            <rect class="solid" x="38" y="45" width="44" height="5" rx="2.5"/>
-            <rect x="44" y="58" width="32" height="14" rx="7"/>
-          </svg>
-          <span class="kind">Лендинг</span>
-          <span class="title">Место для второго проекта</span>
-          <span class="soon">Скоро</span>
-        </div>
+        <a data-testid="work-card-1" class="card" href="https://vpopchenya.github.io/trenirovki/" rel="noopener">
+          <img class="shot" src="img/work-trainer-600.webp"
+               srcset="img/work-trainer-600.webp 600w, img/work-trainer-1200.webp 1200w"
+               sizes="(max-width: 760px) calc(100vw - 82px), 500px" width="600" height="375"
+               loading="lazy" decoding="async" alt="Главный экран приложения «Карманный тренер»: схема тела и группы мышц">
+          <span class="kind">Мой проект · веб-приложение</span>
+          <h3 class="title">Карманный тренер</h3>
+          <p class="task">Задача: бесплатный каталог упражнений для зала. Выбираешь мышцу на схеме тела и видишь технику по шагам. Ставится на телефон и работает без интернета.</p>
+          <ul class="tech"><li>Astro</li><li>PWA</li><li>pytest</li><li>Playwright</li></ul>
+          <span class="open">Открыть приложение</span>
+        </a>
+        <a data-testid="work-card-2" class="card" href="https://github.com/vpopchenya/vpopchenya.github.io" rel="me noopener">
+          <img class="shot" src="img/work-site-ru-600.webp"
+               srcset="img/work-site-ru-600.webp 600w, img/work-site-ru-1200.webp 1200w"
+               sizes="(max-width: 760px) calc(100vw - 82px), 500px" width="600" height="375"
+               loading="lazy" decoding="async" alt="Первый экран этого сайта">
+          <span class="kind">Мой проект · сайт-визитка</span>
+          <h3 class="title">Этот сайт</h3>
+          <p class="task">Задача: сайт-визитка с услугами и ценами на двух языках, без лишнего веса и внешних сервисов. Вёрстка проверена на восьми ширинах экрана.</p>
+          <ul class="tech"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>pytest</li><li>Playwright</li></ul>
+          <span class="open">Код на GitHub</span>
+        </a>
       </div>
       <div class="works">
-        <p>Здесь появятся мои работы. Хотите, чтобы ваш сайт был среди первых? Оставьте заявку.</p>
+        <p>Это мои собственные проекты. Здесь появятся и первые клиентские работы: ваш сайт может стать одним из них.</p>
         <a data-testid="works-order" class="btn" href="#order">Заказать сайт</a>
       </div>
     </section>
@@ -245,57 +236,12 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
     <section data-testid="section-order" class="reveal" aria-labelledby="order">
       <h2 id="order">Заказать сайт</h2>
       <div class="order">
-        <p class="lead-in">Расскажите, что нужно. Отвечу с оценкой стоимости и сроков.</p>
-        <!-- Чтобы форма заработала: зарегистрируйтесь на web3forms.com и вставьте ключ в data-key -->
-        <form data-testid="order-form" id="order-form" novalidate data-endpoint="https://api.web3forms.com/submit" data-key=""
-              data-subject="Заявка с сайта vpopchenya.github.io" data-from-name="Сайт-визитка"
-              data-msg-sending="Отправляю…"
-              data-msg-ok="Спасибо, заявка отправлена. Скоро отвечу."
-              data-msg-err="Не получилось отправить. Попробуйте ещё раз чуть позже."
-              data-msg-nokey="Форма пока не подключена. Скоро здесь можно будет оставить заявку.">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-name">Имя</label>
-              <input data-testid="form-name" id="f-name" name="name" type="text" autocomplete="name" required maxlength="80" placeholder="Как к вам обращаться">
-            </div>
-            <div class="field">
-              <label for="f-contact">Как с вами связаться</label>
-              <input data-testid="form-contact" id="f-contact" name="contact" type="text" autocomplete="off" required maxlength="120" placeholder="Telegram или email">
-            </div>
-            <fieldset class="field wide">
-              <legend>Что нужно</legend>
-              <div class="chips">
-                <label data-testid="type-landing" class="chip"><input type="radio" name="type" value="Лендинг" checked><span>Лендинг</span></label>
-                <label data-testid="type-corporate" class="chip"><input type="radio" name="type" value="Корпоративный сайт"><span>Корпоративный сайт</span></label>
-                <label data-testid="type-multipage" class="chip"><input type="radio" name="type" value="Многостраничный сайт"><span>Многостраничный сайт</span></label>
-                <label data-testid="type-other" class="chip"><input type="radio" name="type" value="Другое" data-other><span>Другое</span></label>
-                <label data-testid="type-unsure" class="chip"><input type="radio" name="type" value="Пока не знаю" data-unsure><span>Пока не знаю</span></label>
-              </div>
-              <div data-testid="form-other-box" class="field other" id="other-box" hidden>
-                <label for="f-other">Что именно нужно</label>
-                <input data-testid="form-other" id="f-other" name="other" type="text" maxlength="120" placeholder="Например, интернет-магазин или сайт-портфолио">
-              </div>
-              <p data-testid="form-unsure-hint" class="chip-hint" id="unsure-hint" hidden>Ничего страшного. Опишите задачу ниже, и я подскажу подходящий вариант.</p>
-            </fieldset>
-            <div class="field wide">
-              <label for="f-message">Расскажите о задаче</label>
-              <textarea data-testid="form-message" id="f-message" name="message" maxlength="2000" placeholder="Чем занимаетесь, что хотите на сайте, есть ли примеры"></textarea>
-            </div>
-            <div class="hp" aria-hidden="true">
-              <label>Не заполняйте это поле <input data-testid="form-botcheck" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"></label>
-            </div>
-            <div class="field wide">
-              <label class="consent" for="f-consent">
-                <input data-testid="form-consent" id="f-consent" name="consent" type="checkbox" required>
-                <span>Согласен на обработку персональных данных в соответствии с <a data-testid="form-privacy" href="privacy/">политикой конфиденциальности</a>.</span>
-              </label>
-            </div>
-            <div class="field wide form-actions">
-              <button data-testid="form-submit" class="btn" type="submit">Отправить заявку</button>
-              <p data-testid="form-status" class="form-status" role="status" aria-live="polite"></p>
-            </div>
-          </div>
-        </form>
+        <p class="lead-in">Напишите, какой сайт нужен и для чего, есть ли примеры, которые нравятся. Отвечу с оценкой стоимости и сроков.</p>
+        <!-- Формы нет намеренно: сайт сам не собирает персональные данные (studio/docs/requirements/vpopchenya-site/order-form-brief.md) -->
+        <div class="order-actions">
+          <a data-testid="order-telegram" class="btn" href="https://t.me/Vadik_QA_1" rel="me noopener">Написать в Telegram</a>
+          <a data-testid="order-email" class="btn btn-ghost" href="mailto:vadim.popchenya0721@gmail.com?subject=%D0%97%D0%B0%D0%BA%D0%B0%D0%B7%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0">Написать на почту</a>
+        </div>
       </div>
     </section>
 

@@ -12,15 +12,12 @@ HEADER = {"logo", "lang-switch", "lang-ru", "lang-en"}
 HOME_COMMON = HEADER | {
     "skip-link", "stamp", "hero-title", "hero-order",
     "section-what", "section-prices", "section-works", "section-about", "section-order", "section-contacts",
-    "panel-tests", "panel-sites",
+    "panel-tests", "panel-sites", "trust-list",
     "plan-landing", "plan-corporate", "plan-multipage", "plan-price", "plan-order", "plans-note",
     "section-process", "step-1", "step-2", "step-3", "step-4", "step-5",
     "work-card-1", "work-card-2", "works-order",
     "about-photo", "about-name", "about-github",
-    "order-form", "form-note", "form-name", "form-contact",
-    "type-landing", "type-corporate", "type-multipage", "type-other", "type-unsure",
-    "form-other-box", "form-other", "form-unsure-hint", "form-message", "form-botcheck",
-    "form-consent", "form-privacy", "form-submit", "form-status",
+    "order-telegram", "order-email",
     "contact-github", "contact-telegram", "contact-email", "footer", "footer-privacy",
 }
 # Блок цен — единственное осознанное различие версий: в RU переключатель ₽ / BYN, в EN только доллары.

@@ -1,4 +1,4 @@
-"""Раскладка главной страницы по точкам перестройки: 900 px (цены) и 760 px (форма, печать).
+"""Раскладка главной страницы по точкам перестройки: 900 px (цены) и 760 px (печать, блоки).
 
 Запуск из папки сайта: python -m pytest tests
 """
@@ -23,7 +23,6 @@ def test_columns_and_stamp_follow_breakpoints(page: Page, site_url, path, width)
     page.goto(site_url + path)
 
     assert grid_columns(page, "plan-landing", ".plans") == (3 if width > 900 else 1), "колонки цен"
-    assert grid_columns(page, "form-name", ".form-grid") == (2 if width > 760 else 1), "колонки формы"
     # На телефоне печать встаёт в поток над заголовком, на больших экранах висит справа.
     stamp_position = page.get_by_test_id("stamp").evaluate("el => getComputedStyle(el).position")
     assert stamp_position == ("absolute" if width > 760 else "static")

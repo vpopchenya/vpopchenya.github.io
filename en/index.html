@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Security policy: only this site's own files, plus the form service. If you change the inline script below, its hash here must change too. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-WZRJfWvsnNCPcxzZwvyhovnZGqhZaC+8gPGPRbx6wTk='; style-src 'self'; img-src 'self'; connect-src https://api.web3forms.com; base-uri 'none'; form-action 'none'">
+<!-- Security policy: only this site's own files, no outside connections. If you change the inline script below, its hash here must change too. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-WZRJfWvsnNCPcxzZwvyhovnZGqhZaC+8gPGPRbx6wTk='; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Vadim Popchenya — web development: landing pages and business websites</title>
 <meta name="description" content="I build landing pages, corporate and multi-page websites turnkey: mobile-friendly, fast, with a contact form. I check every site before handover.">
@@ -74,16 +74,6 @@
     <rect x="132" y="200" width="96" height="44" rx="10"/>
     <rect x="240" y="200" width="96" height="44" rx="10"/>
   </svg>
-  <!-- test code -->
-  <pre class="bg-item bg-code-a" data-speed="0.3">&lt;<span class="kw">section</span> class=<span class="ok">"hero"</span>&gt;
-  &lt;<span class="kw">h1</span>&gt;New website&lt;/<span class="kw">h1</span>&gt;
-  &lt;<span class="kw">a</span> class=<span class="ok">"btn"</span> href=<span class="ok">"#order"</span>&gt;Order&lt;/<span class="kw">a</span>&gt;
-&lt;/<span class="kw">section</span>&gt;</pre>
-  <pre class="bg-item bg-code-b" data-speed="0.16">tests/test_ui.py::test_menu      <span class="ok">PASSED</span>
-tests/test_ui.py::test_form      <span class="ok">PASSED</span>
-tests/test_api.py::test_status   <span class="ok">PASSED</span>
-tests/test_api.py::test_login    <span class="ok">PASSED</span>
-<span class="ok">=========== 4 passed in 2.31s ===========</span></pre>
 </div>
 
 <div class="wrap">
@@ -102,7 +92,7 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
         <span>checked</span>
       </div>
       <h1 data-testid="hero-title" class="intro"><span>I build websites and test them myself</span></h1>
-      <p class="lead intro"><span class="sweep">Turnkey landing pages, corporate and multi-page websites: design, layout, contact form, hosting and domain. Before handover I check every page on phones and desktops.</span></p>
+      <p class="lead intro"><span class="sweep">Turnkey landing pages and business websites, from design to domain. Easy to use on a phone, with a clear path to an enquiry. Before handover I personally check every page, form and link.</span></p>
       <div class="intro"><a data-testid="hero-order" class="btn" href="#order">Order a site</a></div>
     </div>
 
@@ -118,6 +108,12 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
           <p><span class="sweep">Before handover I check the site on phones and desktops: forms, links, speed. Some checks are automated: testing is my second profession.</span></p>
         </div>
       </div>
+      <ul data-testid="trust-list" class="trust">
+        <li><strong>Responsive layout</strong><span>The site works well on phones, tablets and desktops.</span></li>
+        <li><strong>Forms and links</strong><span>I make sure enquiries arrive and no link leads nowhere.</span></li>
+        <li><strong>Phones and desktops</strong><span>I review every page at different screen sizes.</span></li>
+        <li><strong>Automated tests in Python</strong><span>Key checks are repeated after every change.</span></li>
+      </ul>
     </section>
 
     <section data-testid="section-prices" class="reveal" aria-labelledby="prices">
@@ -136,7 +132,7 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
             <li>Checked on phone and desktop before handover</li>
             <li>Timeline: from 3 days</li>
           </ul>
-          <a data-testid="plan-order" class="btn" href="#order" data-plan="Landing page">Order</a>
+          <a data-testid="plan-order" class="btn" href="#order">Order</a>
         </article>
         <article data-testid="plan-corporate" class="plan">
           <h3>Corporate website</h3>
@@ -149,7 +145,7 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
             <li>Checks of key pages and the form</li>
             <li>Timeline: from 2 weeks</li>
           </ul>
-          <a data-testid="plan-order" class="btn" href="#order" data-plan="Corporate website">Order</a>
+          <a data-testid="plan-order" class="btn" href="#order">Order</a>
         </article>
         <article data-testid="plan-multipage" class="plan">
           <h3>Multi-page website</h3>
@@ -162,7 +158,7 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
             <li>Checks of every page and form</li>
             <li>Timeline: from 4 weeks</li>
           </ul>
-          <a data-testid="plan-order" class="btn" href="#order" data-plan="Multi-page website">Order</a>
+          <a data-testid="plan-order" class="btn" href="#order">Order</a>
         </article>
       </div>
       <p data-testid="plans-note" class="plans-note">Prices are approximate. I'll give an exact quote after a short chat about your project. Domain and hosting are paid separately, and you provide the texts and photos. Scope, number of revisions and support after delivery are fixed in the estimate.</p>
@@ -182,38 +178,33 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
 
     <section data-testid="section-works" class="reveal" aria-labelledby="works">
       <h2 id="works">My sites</h2>
-      <!-- PLACEHOLDERS: when a real site exists, replace <div class="card"> with <a class="card" href="site address">, set the type and name, remove "Coming soon" -->
+      <!-- Real work. Add a client project as the same kind of card: screenshot, task, technologies, link. Label demo projects as demo in .kind. -->
       <div class="cards">
-        <div data-testid="work-card-1" class="card">
-          <svg class="preview" viewBox="0 0 120 90" aria-hidden="true">
-            <rect x="2" y="2" width="116" height="86" rx="10"/>
-            <line x1="2" y1="20" x2="118" y2="20"/>
-            <circle class="solid" cx="14" cy="11" r="2.5"/><circle class="solid" cx="23" cy="11" r="2.5"/>
-            <rect class="solid" x="12" y="30" width="50" height="8" rx="4"/>
-            <rect class="solid" x="12" y="44" width="38" height="5" rx="2.5"/>
-            <circle cx="88" cy="42" r="14"/>
-            <rect x="12" y="62" width="30" height="16" rx="5"/><rect x="46" y="62" width="30" height="16" rx="5"/><rect x="80" y="62" width="30" height="16" rx="5"/>
-          </svg>
-          <span class="kind">Business card site</span>
-          <span class="title">Space for my first project</span>
-          <span class="soon">Coming soon</span>
-        </div>
-        <div data-testid="work-card-2" class="card">
-          <svg class="preview" viewBox="0 0 120 90" aria-hidden="true">
-            <rect x="2" y="2" width="116" height="86" rx="10"/>
-            <line x1="2" y1="20" x2="118" y2="20"/>
-            <circle class="solid" cx="14" cy="11" r="2.5"/><circle class="solid" cx="23" cy="11" r="2.5"/>
-            <rect class="solid" x="26" y="30" width="68" height="9" rx="4.5"/>
-            <rect class="solid" x="38" y="45" width="44" height="5" rx="2.5"/>
-            <rect x="44" y="58" width="32" height="14" rx="7"/>
-          </svg>
-          <span class="kind">Landing page</span>
-          <span class="title">Space for my second project</span>
-          <span class="soon">Coming soon</span>
-        </div>
+        <a data-testid="work-card-1" class="card" href="https://vpopchenya.github.io/trenirovki/" rel="noopener">
+          <img class="shot" src="../img/work-trainer-600.webp"
+               srcset="../img/work-trainer-600.webp 600w, ../img/work-trainer-1200.webp 1200w"
+               sizes="(max-width: 760px) calc(100vw - 82px), 500px" width="600" height="375"
+               loading="lazy" decoding="async" alt="Home screen of the Pocket Trainer app: body diagram and muscle groups">
+          <span class="kind">My project · web app (in Russian)</span>
+          <h3 class="title">Pocket Trainer</h3>
+          <p class="task">The task: a free gym exercise catalog. Pick a muscle on the body diagram and see step-by-step technique. Installs on a phone and works offline.</p>
+          <ul class="tech"><li>Astro</li><li>PWA</li><li>pytest</li><li>Playwright</li></ul>
+          <span class="open">Open the app</span>
+        </a>
+        <a data-testid="work-card-2" class="card" href="https://github.com/vpopchenya/vpopchenya.github.io" rel="me noopener">
+          <img class="shot" src="../img/work-site-en-600.webp"
+               srcset="../img/work-site-en-600.webp 600w, ../img/work-site-en-1200.webp 1200w"
+               sizes="(max-width: 760px) calc(100vw - 82px), 500px" width="600" height="375"
+               loading="lazy" decoding="async" alt="First screen of this site">
+          <span class="kind">My project · business card site</span>
+          <h3 class="title">This site</h3>
+          <p class="task">The task: a business card site with services and prices in two languages, lightweight, with no third-party services. The layout is checked at eight screen widths.</p>
+          <ul class="tech"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>pytest</li><li>Playwright</li></ul>
+          <span class="open">Code on GitHub</span>
+        </a>
       </div>
       <div class="works">
-        <p>My work will appear here. Want your site to be among the first? Send a request.</p>
+        <p>These are my own projects. My first client work will appear here too, and your site could be one of them.</p>
         <a data-testid="works-order" class="btn" href="#order">Order a site</a>
       </div>
     </section>
@@ -239,57 +230,12 @@ tests/test_api.py::test_login    <span class="ok">PASSED</span>
     <section data-testid="section-order" class="reveal" aria-labelledby="order">
       <h2 id="order">Order a site</h2>
       <div class="order">
-        <p class="lead-in">Tell me what you need. I'll reply with a quote and a timeline.</p>
-        <!-- To make the form work: sign up at web3forms.com and put your key into data-key -->
-        <form data-testid="order-form" id="order-form" novalidate data-endpoint="https://api.web3forms.com/submit" data-key=""
-              data-subject="Request from vpopchenya.github.io" data-from-name="Business card site"
-              data-msg-sending="Sending…"
-              data-msg-ok="Thank you, your request was sent. I'll reply soon."
-              data-msg-err="Could not send. Please try again a little later."
-              data-msg-nokey="The form is not connected yet. You will be able to send a request here soon.">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-name">Name</label>
-              <input data-testid="form-name" id="f-name" name="name" type="text" autocomplete="name" required maxlength="80" placeholder="How should I address you">
-            </div>
-            <div class="field">
-              <label for="f-contact">How to reach you</label>
-              <input data-testid="form-contact" id="f-contact" name="contact" type="text" autocomplete="off" required maxlength="120" placeholder="Telegram or email">
-            </div>
-            <fieldset class="field wide">
-              <legend>What you need</legend>
-              <div class="chips">
-                <label data-testid="type-landing" class="chip"><input type="radio" name="type" value="Landing page" checked><span>Landing page</span></label>
-                <label data-testid="type-corporate" class="chip"><input type="radio" name="type" value="Corporate website"><span>Corporate website</span></label>
-                <label data-testid="type-multipage" class="chip"><input type="radio" name="type" value="Multi-page website"><span>Multi-page website</span></label>
-                <label data-testid="type-other" class="chip"><input type="radio" name="type" value="Other" data-other><span>Other</span></label>
-                <label data-testid="type-unsure" class="chip"><input type="radio" name="type" value="Not sure yet" data-unsure><span>Not sure yet</span></label>
-              </div>
-              <div data-testid="form-other-box" class="field other" id="other-box" hidden>
-                <label for="f-other">What exactly do you need</label>
-                <input data-testid="form-other" id="f-other" name="other" type="text" maxlength="120" placeholder="For example, an online store or a portfolio site">
-              </div>
-              <p data-testid="form-unsure-hint" class="chip-hint" id="unsure-hint" hidden>No problem. Describe your project below and I'll suggest an option.</p>
-            </fieldset>
-            <div class="field wide">
-              <label for="f-message">Tell me about your project</label>
-              <textarea data-testid="form-message" id="f-message" name="message" maxlength="2000" placeholder="What you do, what you want on the site, any examples you like"></textarea>
-            </div>
-            <div class="hp" aria-hidden="true">
-              <label>Leave this field empty <input data-testid="form-botcheck" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"></label>
-            </div>
-            <div class="field wide">
-              <label class="consent" for="f-consent">
-                <input data-testid="form-consent" id="f-consent" name="consent" type="checkbox" required>
-                <span>I agree to the processing of my personal data as described in the <a data-testid="form-privacy" href="privacy/">privacy policy</a>.</span>
-              </label>
-            </div>
-            <div class="field wide form-actions">
-              <button data-testid="form-submit" class="btn" type="submit">Send request</button>
-              <p data-testid="form-status" class="form-status" role="status" aria-live="polite"></p>
-            </div>
-          </div>
-        </form>
+        <p class="lead-in">Tell me what site you need and what for, and whether there are examples you like. I'll reply with a quote and a timeline.</p>
+        <!-- No form on purpose: the site itself collects no personal data (studio/docs/requirements/vpopchenya-site/order-form-brief.md) -->
+        <div class="order-actions">
+          <a data-testid="order-telegram" class="btn" href="https://t.me/Vadik_QA_1" rel="me noopener">Message me on Telegram</a>
+          <a data-testid="order-email" class="btn btn-ghost" href="mailto:vadim.popchenya0721@gmail.com?subject=Website%20order">Email me</a>
+        </div>
       </div>
     </section>
 
